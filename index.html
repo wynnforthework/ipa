@@ -1,16 +1,31 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-    <a class="char" href="/xx.crt">首次安装请点击安装证书</a>
-    <br>
-    <br> 注：iOS10 之后需要在“设置” -> “通用” -> “关于本机” -> “证书信任设置”信任相关证书
-    <br>
-    <br>
-    <a class="char"
-        href="itms-services://?action=download-manifest&url=https://ipa-pi.vercel.app/manifest.plist">测试应用3.1.1</a>
-</body>
+  <head>
+    <title>OTA install</title>
+    <meta name="viewport" content="width=320, initial-scale=1">
+  </head>
+  <style type="text/css">
+    body   { width: 320px; margin: auto; text-align: center; }
+    div    { font: 24px Arial; margin-top: 20px; margin-bottom: 20px; }
+    img    { display: block; border: 0; border-radius: 9px; margin: auto; }
+    span   { display: block; font: 13px Arial; font-weight: bold; padding-top: 6px; }
+    p      { font: 16px Arial; margin-bottom: 10px; }
+    button { width: 160px; height: 80px; margin: 20px; font: 24px Arial; visibility: hidden; }
+  </style>
+  <script language="javascript">
+    function page_init () {
+      var is_ios = navigator.platform.match (/(iPad|iPhone|iPod)/g) && navigator.userAgent.match(/Safari/g) && !window.MSStream;
+      var body = document.getElementsByTagName ("body")[0];
+      if (is_ios) {
+        body.innerHTML += "<p>&laquo; <b>Open</b> &raquo; this page in iTunes<br />then choose &laquo; <b>Install</b> &raquo;.</p><button id='reloadbtn' onclick='javascript: window.location.reload ();'>&#x1f504;&nbsp; Retry</button><p>Your app will install in the background.<br />Return to your home screen to watch it.</p>";
+        setTimeout (function () { document.getElementById ('reloadbtn').style.visibility = 'visible'; }, 10000);
+        window.location.href = "itms-services://?action=download-manifest&url=https://www.pmbaty.com/ota/192.168.0.35/5003/com.starowl.thesrpg.cn/0/ProductName.ipa.plist";
+      } else {
+        body.innerHTML += "<p>Please visit this page with Safari on your iOS device.</p><p>Your browser's current User-Agent string is: <code>" + navigator.userAgent + "</code>. You must open this page with a browser that supports the <code>itms-services://</code> protocol. <a href='itms-services://?action=download-manifest&url=https://www.pmbaty.com/ota/192.168.0.35/5003/com.starowl.thesrpg.cn/0/ProductName.ipa.plist'>Tap here</a> to skip the browser detection and try to install anyway.</p>";
+      }
+    }
+  </script>
+  <body onload="javascript: page_init ();">
+    <div>OTA deployment</div><img src="http://192.168.0.35:5003/57x57.png"><span>鏌愭垬妫�</span>
+  </body>
 </html>
+
