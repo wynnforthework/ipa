@@ -1,12 +1,13 @@
 <html>
   <head>
     <title>OTA install</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=320, initial-scale=1">
   </head>
   <style type="text/css">
     body   { width: 320px; margin: auto; text-align: center; }
     div    { font: 24px Arial; margin-top: 20px; margin-bottom: 20px; }
-    img    { display: block; border: 0; border-radius: 9px; margin: auto; }
+    img    { display: block; border: 0; border-radius: 9px; margin: auto; width: 256px; height: 256px;}
     span   { display: block; font: 13px Arial; font-weight: bold; padding-top: 6px; }
     p      { font: 16px Arial; margin-bottom: 10px; }
     button { width: 160px; height: 80px; margin: 20px; font: 24px Arial; visibility: hidden; }
@@ -20,7 +21,7 @@
         setTimeout (function () { document.getElementById ('reloadbtn').style.visibility = 'visible'; }, 10000);
         window.location.href = "itms-services://?action=download-manifest&url=https://ipa-pi.vercel.app/manifest.plist";
       } else {
-        body.innerHTML += "<p>Please visit this page with Safari on your iOS device.</p><p>Your browser's current User-Agent string is: <code>" + navigator.userAgent + "</code>. You must open this page with a browser that supports the <code>itms-services://</code> protocol. <a href='itms-services://?action=download-manifest&url=https://www.pmbaty.com/ota/192.168.0.35/5003/com.starowl.thesrpg.cn/0/ProductName.ipa.plist'>Tap here</a> to skip the browser detection and try to install anyway.</p>";
+        body.innerHTML += "<p>Please visit this page with Safari on your iOS device.</p><p>Your browser's current User-Agent string is: <code>" + navigator.userAgent + "</code>. You must open this page with a browser that supports the <code>itms-services://</code> protocol. <a href='itms-services://?action=download-manifest&url=https://ipa-pi.vercel.app/manifest.plist'>Tap here</a> to skip the browser detection and try to install anyway.</p>";
       }
     }
   </script>
